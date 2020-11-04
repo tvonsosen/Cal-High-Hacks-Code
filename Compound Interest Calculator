@@ -1,0 +1,78 @@
+def compoundInterest(initial, rate, period, perY):
+    print("You started with: $", initial)
+    result = initial * ((1+rate/perY)**(perY*period))
+    result = round(result,2)
+    print("End Result: $", result)
+
+def startInput():
+    initialInvest = input("How much money would you like to invest initially: ")
+
+    try:
+        initialInvest = float(initialInvest)
+
+    except:
+        print('Try Again: Not a Positive Number or 0!')
+        startInput()
+    if initialInvest >= 0:
+        pass
+    else:
+        print('Try Again: Not a Positive Number or 0!')
+        startInput()
+
+    running = True
+    while running:
+        timePeriod = input("How many years will you be earning interest: ")
+        if timePeriod.isdigit():
+            timePeriod = int(timePeriod)
+            running = False
+        else:
+            print('Try Again: Not a Positive Integer or 0!')
+    running = True
+    while running:      
+        interestRate = input("What percent interest rate are you earning: ")
+        try:
+            interestRate = float(interestRate)
+            
+        except:
+            print('Try Again: Not a Positive Number!')
+        
+        if interestRate >= 0:
+            running = False
+        else:
+            print('Try Again: Not a Positive Number or 0!')
+            
+    interestRate = interestRate/100
+    running = True
+    while running:
+        howOften = input("""How often are you earning this interest?
+Yearly, Semi-annually, quarterly, monthly, daily, or exit (y/s/q/m/d/e): """)
+
+        if howOften == 'y':
+            perYear = 1
+            running = False
+        elif howOften == 's':
+            perYear = 2
+            running = False
+        elif howOften == 'q':
+            perYear = 4
+            running = False
+        elif howOften == 'm':
+            perYear = 12
+            running = False
+        elif howOften == 'd':
+            perYear = 365
+            running = False
+        elif howOften == 'e':
+            exit()
+        else:
+            print('Try again! Input the lowercase keys given!')
+        
+    compoundInterest(initialInvest, interestRate, timePeriod, perYear)
+
+    again = input("Would you like to calculate again?: (y/any other key to exit) ")
+    if again == 'y':
+        startInput()
+    else:
+        exit()
+
+startInput()
