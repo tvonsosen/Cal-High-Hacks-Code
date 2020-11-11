@@ -1,0 +1,36 @@
+import array
+
+inputforInt =input("List 5 positive integers with spaces in between them: ")
+
+integerArray = inputforInt.split()
+if len(integerArray) > 5:
+    print("Nope, those aren't 5 positive integers!")
+    exit()
+# All error checking + converting list to integers 
+for i in range(5):
+    if integerArray[i].isdigit() and int(integerArray[i]) > 0:
+        integerArray[i] = int(integerArray[i])
+
+    else:
+        print("Nope, those aren't 5 positive integers!")
+        exit() 
+
+# Converts list to array, character type - unsigned long long int, 64 bit min size
+integerArray = array.array('Q', integerArray)
+
+def miniMaxSum(intArray):
+
+# takes max and min values of array and subtracts each to find max and min sum for 4 values
+    maxInt = max(intArray)
+    minInt = min(intArray)
+
+    listSum = sum(intArray)
+
+    minSum = listSum - maxInt
+    maxSum = listSum - minInt
+
+    print('The minimum and maximum sums of 4 of the integers are: ')
+    print(minSum, maxSum)
+
+
+miniMaxSum(integerArray)
