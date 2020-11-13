@@ -1,4 +1,3 @@
-integerList = list(map(int, input("List 5 integers with spaces in between them: ").split()))
 def miniMaxSum(intList):
     print(sum(intList) - max(intList),sum(intList) - min(intList))
-miniMaxSum(integerList)
+miniMaxSum(list(map(int, input("List 5 integers with spaces in between them: ").split())))
