@@ -1,3 +1,5 @@
+# Returns where a player is on the leaderboard based on their scores each time
+
 def climbingLeaderboard(ranked, player):
     ranks = []
     for i in range(len(player)):
