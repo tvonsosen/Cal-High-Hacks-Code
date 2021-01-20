@@ -1,3 +1,5 @@
+#calculates compound interest
+
 import math
 
 def compoundInterest(initial, rate, periods, perY):
